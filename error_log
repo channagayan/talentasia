@@ -1,0 +1,19 @@
+[28-Dec-2013 17:13:44 Asia/Colombo] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/talentas/public_html/posts.php on line 22
+[28-Dec-2013 17:15:07 Asia/Colombo] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/talentas/public_html/posts.php on line 22
+[28-Dec-2013 17:15:09 Asia/Colombo] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/talentas/public_html/posts.php on line 22
+[28-Dec-2013 17:16:43 Asia/Colombo] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/talentas/public_html/posts.php on line 22
+[28-Dec-2013 17:19:27 Asia/Colombo] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/talentas/public_html/posts.php on line 22
+[28-Dec-2013 17:19:41 Asia/Colombo] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/talentas/public_html/posts.php on line 22
+[28-Dec-2013 17:24:13 Asia/Colombo] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/talentas/public_html/posts.php on line 22
+[28-Dec-2013 17:31:07 Asia/Colombo] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/talentas/public_html/posts.php on line 22
+[28-Dec-2013 17:39:41 Asia/Colombo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/talentas/public_html/postUpload.php:7) in /home/talentas/public_html/postUpload.php on line 27
+[28-Dec-2013 17:41:37 Asia/Colombo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/talentas/public_html/postUpload.php:7) in /home/talentas/public_html/postUpload.php on line 27
+[28-Dec-2013 17:43:14 Asia/Colombo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/talentas/public_html/postUpload.php:25) in /home/talentas/public_html/postUpload.php on line 26
+[28-Dec-2013 17:51:39 Asia/Colombo] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/talentas/public_html/posts.php on line 22
+[28-Dec-2013 18:38:22 Asia/Colombo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/talentas/public_html/postConfirm.php:4) in /home/talentas/public_html/postConfirm.php on line 9
+[02-Jan-2014 15:15:40 Asia/Colombo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/talentas/public_html/postConfirm.php:4) in /home/talentas/public_html/postConfirm.php on line 9
+[02-Jan-2014 15:15:57 Asia/Colombo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/talentas/public_html/postConfirm.php:4) in /home/talentas/public_html/postConfirm.php on line 9
+[03-Jan-2014 13:22:53 Asia/Colombo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/talentas/public_html/postConfirm.php:4) in /home/talentas/public_html/postConfirm.php on line 9
+[17-Jan-2014 18:26:30 Asia/Colombo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/talentas/public_html/RegisterScript.php:49) in /home/talentas/public_html/RegisterScript.php on line 52
+[23-Jan-2014 16:32:08 Asia/Colombo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/talentas/public_html/RegisterScript.php:49) in /home/talentas/public_html/RegisterScript.php on line 52
+[12-May-2014 05:18:05 Asia/Colombo] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Lost connection to MySQL server at 'reading initial communication packet', system error: 111 in /home/talentas/public_html/dbClass.php on line 2

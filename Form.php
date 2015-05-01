@@ -297,7 +297,7 @@
             </tr>
             <tr>
               <td colspan="3">Date of Birth </td>
-              <td colspan="3"><input type="datetime" id="DOB" class="Textbox" Name="dtDOB" /></td>
+              <td colspan="3"><input type="date" id="DOB" class="Textbox" Name="dtDOB" /></td>
             </tr>
             <tr>
               <td colspan="3">Grade </td>
@@ -333,6 +333,14 @@
             <tr>
               <td colspan="3">E-mail </td>
               <td colspan="3"><input type="email" name="txtMail" class="Textbox" id="Mail"/></td>
+            </tr>
+	<tr>
+              <td colspan="3">Interests </td>
+              <td colspan="3"><input type="text" name="interests" class="Textbox" id="interests"/></td>
+            </tr>
+	<tr>
+              <td colspan="3">Education </td>
+              <td colspan="3"><input type="text" name="education" class="Textbox" id="education"/></td>
             </tr>
             <tr>
               <td colspan="3"><input type="submit" value="Create account" id="submit"  Name="btnSubmit" /></td>

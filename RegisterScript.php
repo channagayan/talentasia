@@ -24,6 +24,8 @@
 		$School=$_POST['ddSchool'];
 		$Contct=$_POST['txtContact'];
 		$Email=$_POST['txtMail'];
+		$interests =$_POST['interests'];
+		$education =$_POST['education'];
 
 		if($PW==$PWConferm){
 			require("dbClass.php");
@@ -39,7 +41,7 @@
 				}
 			}
 			
-			$query="INSERT INTO members VALUES ('$MaxMemberID','$Fname','$Mname','$Lnmae','$Add1','$Add2','$Add3','$country','$Zip','$DOB','$Grade','$School','$Gender','$Contct','$Email');";
+			$query="INSERT INTO members VALUES ('$MaxMemberID','$Fname','$Mname','$Lnmae','$Add1','$Add2','$Add3','$country','$Zip','$DOB','$Grade','$School','$Gender','$Contct','$Email','$interests','$education');";
 			$result=mysql_query($query) or die("Query Error".mysql_error());
 			
 			$query="INSERT INTO users VALUES ('$Uname','$MaxMemberID','$PW','0')";
@@ -49,6 +51,6 @@
 				echo "<script type=\"text/jscript\"> alert(\"Sucess\");</script>";
 			}
 		}
-		header("Location: index.html");
+		header("Location: index.php");
 	}
 ?>

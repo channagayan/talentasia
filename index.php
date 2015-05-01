@@ -70,12 +70,14 @@
 			$result=mysql_query($query);
 			
 			$Data=mysql_fetch_array($result);
+			echo "<a href=\"profile.php\">";
 			
 				if(is_null($Data['MName'])){
-					echo "<a>".$Data['FName']." ".$Data['LName']."</a>|";
+					echo $Data['FName']." ".$Data['LName']."</a>|";
 				}else{
-					echo "<a>".$Data['FName']." ".$Data['MName']." ".$Data['LName']."</a>|";
+					echo $Data['FName']." ".$Data['MName']." ".$Data['LName']."</a>|";
 				}
+
 			echo "<a href=\"Login.php\">LOGOUT</a>|";
 	  }else{
 		 echo "<a id=\"Login\">LOGIN</a>|";

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 	<title id="Description"></title>
-	<link href="styles/style.css" rel="stylesheet" type="text/css" />
+	
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.css" />
@@ -11,40 +11,58 @@
    
 <script src="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.min.js"></script>
 
+<link href="styles/style.css" rel="stylesheet" type="text/css" />
+
 	</head>
 	<body>
-    <div id="createAccount" style="font-family: Verdana; font-size: 13px; color:#FFF">
-      <div> Create a new account </div>
+    <div id="EditAccount" style="font-family: Verdana; font-size: 13px; color:#FFF">
+      <div> Edit account Detail </div>
+
+<?php
+session_start();
+	   if(isset($_SESSION['Uname'])){
+			require("dbClass.php");
+			$query="SELECT * FROM members WHERE MemberID='".$_SESSION['id']."';";
+			$result=mysql_query($query);
+
+			$Data=mysql_fetch_array($result);
+			echo "<a href=\"Login.php\">LOGOUT</a>|";
+	  }else{
+		 echo "<a id=\"Login\">LOGIN</a>|";
+	  }
+	  
+	  ?>
       <div style="font-family: Verdana; font-size: 13px; color:#FFF;">
-        <form id="form" action="RegisterScript.php" method="post">
+        <form id="form" action="RegisterEditScript.php" method="post">
+<input type="hidden" id="id" name="txtID" value ="<?php echo $Data['MemberID'] ?>
           <table class="table" cellpadding="5px">
             <tr>
               <td colspan="3">First Name </td>
-              <td><input type="text" id="firstName" class="Textbox"  Name="txtFName" /></td>
+              <td><input type="text" id="firstName" class="Textbox"  Name="txtFName" value="<?php echo $Data['FName'] ?>" /></td>
             </tr>
             <tr>
               <td colspan="3">Midle Name </td>
-              <td><input  type="text" id="MidleName" class="Textbox" Name="txtMName" /></td>
+              <td><input  type="text" id="MidleName" class="Textbox" Name="txtMName" value="<?php echo $Data['MName'] ?>" /></td>
             </tr>
             <tr>
               <td colspan="3">Last Name </td>
-              <td><input  type="text" id="lastName" class="Textbox" Name="txtLName" /></td>
+              <td><input  type="text" id="lastName" class="Textbox" Name="txtLName" value="<?php echo $Data['LName'] ?>" /></td>
             </tr>
             <tr>
               <td colspan="3">Address 1 </td>
-              <td><input type="text" id="Address1" class="Textbox"  Name="txtAdd1" /></td>
+              <td><input type="text" id="Address1" class="Textbox"  Name="txtAdd1" value="<?php echo $Data['Address1'] ?>" /></td>
             </tr>
             <tr>
               <td colspan="3">Address 2 </td>
-              <td><input  type="text" id="Address2" class="Textbox" Name="txtAdd2" /></td>
+              <td><input  type="text" id="Address2" class="Textbox" Name="txtAdd2" value="<?php echo $Data['Address2'] ?>" /></td>
             </tr>
             <tr>
               <td colspan="3">City </td>
-              <td><input  type="text" id="Address3" class="Textbox" Name="txtAdd3" /></td>
+              <td><input  type="text" id="Address3" class="Textbox" Name="txtAdd3" value="<?php echo $Data['Address3'] ?>"/></td>
             </tr>
             <tr>
               <td colspan="3">Country </td>
-              <td><select name="Country" class="Textbox">
+              <td><select name="Country" class="Textbox" value="<?php echo $Data['Country'] ?>">
                   <option value=" " selected>(please select a country)</option>
                   <option value="AF">Afghanistan</option>
                   <option value="AL">Albania</option>
@@ -289,39 +307,32 @@
             </tr>
             <tr>
               <td colspan="3">Zip Code / Postal Code</td>
-              <td colspan="3"><input  type="text" id="ZipCode" class="Textbox" Name="ZipCode"/></td>
+              <td colspan="3"><input  type="text" id="ZipCode" class="Textbox" Name="ZipCode" value="<?php echo $Data['Zip_Code'] ?>"/></td>
             </tr>
-            <tr>
-              <td colspan="3">Choose your username </td>
-              <td colspan="3"><input  type="text" id="userName" class="Textbox" Name="txtUName"/></td>
-            </tr>
-            <tr>
-              <td colspan="3">Create a password </td>
-              <td colspan="3"><input type="password" id="password" class="Textbox" Name="txtPW"/></td>
-            </tr>
-            <tr>
-              <td colspan="3">Confirm your password </td>
-              <td colspan="3"><input type="password" id="passwordConfirm" class="Textbox" Name="txtPWConfirm" /></td>
-            </tr>
+
             <tr>
               <td colspan="3">Date of Birth </td>
-              <td colspan="3"><input type="date" id="DOB" class="Textbox" Name="dtDOB" /></td>
+              <td colspan="3"><input type="date" id="DOB" class="Textbox" Name="dtDOB" value="<?php echo $Data['DOB'] ?>"/></td>
             </tr>
             <tr>
               <td colspan="3">Grade </td>
-              <td colspan="3"><input type="text" id="Grade" class="Textbox" Name="txtGrade" /></td>
+              <td colspan="3"><input type="text" id="Grade" class="Textbox" Name="txtGrade"  value="<?php echo $Data['Grade'] ?>"/></td>
             </tr>
             <tr>
+
               <td colspan="3">School </td>
-              <td colspan="3"><select id="School" name="ddSchool" class="Textbox">
+              <td colspan="3"><select id="School" name="ddSchool" class="Textbox"  >
               <option value="other" selected>Other</option>
                   <?php
                             	require("dbClass.php");
-								$query="SELECT * FROM schools";
-								$result=mysql_query($query);
+								$queryscl="SELECT * FROM schools";
+								$resultscl=mysql_query($query);
 								
-								while($data=mysql_fetch_array($result)){
-									echo("<option value=\"".$data['SchoolID']."\">".$data['SchoolName']."-".$data['City']."</option>\n");
+								while($datascl=mysql_fetch_array($resultscl)){
+									$selected="";
+									if ($Data['SchoolID']==$datascl['SchoolID']){$selected=" selected=\"selected\" ";
+}
+									echo("<option value=\"".$datascl['SchoolID'] . $selected."\">".$datascl['SchoolName']."-".$datascl['City']."</option>\n");
 								}
                             
                             ?>
@@ -329,31 +340,30 @@
             </tr>
             <tr>
               <td colspan="3">Gender </td>
-              <td colspan="3"><input type="radio" name="rbGender" id="Gender" value="M"/>
+              <td colspan="3"><input type="radio" name="rbGender" id="Gender" value="M" hecked="checked"/>
                 <label>Male</label>
                 <input type="radio" name="rbGender" id="Gender" value="F"/>
                 <label>Female</label></td>
-<		input type="radio" name="rbGender" id="Gender" value="N"/>
-                <label>Not sepecify</label>
             </tr>
             <tr>
               <td colspan="3">Phone </td>
-              <td colspan="3"><input type="tel" name="txtContact" class="Textbox" id="Contact"/></td>
+              <td colspan="3"><input type="tel" name="txtContact" class="Textbox" id="Contact" value="<?php echo $Data['Contact'] ?>"/></td>
             </tr>
             <tr>
               <td colspan="3">E-mail </td>
-              <td colspan="3"><input type="email" name="txtMail" class="Textbox" id="Mail"/></td>
+              <td colspan="3"><input type="email" name="txtMail" class="Textbox" id="Mail" value="<?php echo $Data['Email'] ?>"/></td>
             </tr>
 	<tr>
               <td colspan="3">Interests </td>
-              <td colspan="3"><input type="text" name="interests" class="Textbox" id="interests" data-role="tagsinput"></td>
+              <td colspan="3"><input type="text" name="interests" class="Textbox" id="interests" data-role="tagsinput" value="<?php echo $Data['interests'] ?>"/></td>
             </tr>
 	<tr>
               <td colspan="3">Education </td>
-              <td colspan="3"><input type="text" name="education" class="Textbox" id="education"/></td>
+              <td colspan="3"><input type="text" name="education" class="Textbox" id="education" value="<?php echo $Data['education'] ?>"/></td>
             </tr>
             <tr>
-              <td colspan="3"><input type="submit" value="Create account" id="submit"  Name="btnSubmit" /></td>
+              <td colspan="3"><input type="submit" value="Edit" id="submit"  Name="btnSubmit" /></td>
+		<td colspan="3"><input type="reset" value="Cancel" id="submit"></td>
             </tr>
           </table>
         </form>

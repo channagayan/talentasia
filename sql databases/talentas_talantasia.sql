@@ -72,22 +72,19 @@ CREATE TABLE IF NOT EXISTS `logindetails` (
 
 CREATE TABLE IF NOT EXISTS `members` (
   `MemberID` int(11) NOT NULL AUTO_INCREMENT,
+   `MemberID` int(11) NOT NULL,
   `FName` varchar(20) NOT NULL,
-  `MName` varchar(20) NOT NULL,
   `LName` varchar(20) NOT NULL,
-  `Address1` varchar(100) NOT NULL,
-  `Address2` varchar(100) NOT NULL,
-  `Address3` varchar(100) NOT NULL,
-  `Country` varchar(100) NOT NULL,
-  `Zip_Code` varchar(5) NOT NULL,
   `DOB` date NOT NULL,
-  `Grade` varchar(20) NOT NULL,
-  `SchoolID` int(6) NOT NULL,
   `Gender` int(2) NOT NULL,
+  `institute` varchar(250) NOT NULL,
   `Contact` int(12) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `interests` varchar(250) NOT NULL,
   `education` varchar(250) NOT NULL,
+  `professional` varchar(250) NOT NULL,
+  `experience` varchar(250) NOT NULL,
+  `profilepic` blob NOT NULL,
   PRIMARY KEY (`MemberID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
@@ -184,7 +181,7 @@ INSERT INTO `schools` (`SchoolID`, `SchoolName`, `City`) VALUES
 CREATE TABLE IF NOT EXISTS `users` (
   `UName` varchar(20) NOT NULL,
   `MemberID` int(11) NOT NULL,
-  `Password` bigint(20) NOT NULL,
+  `Password` varchar(250) NOT NULL,
   `UserLevel` int(1) NOT NULL,
   PRIMARY KEY (`UName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

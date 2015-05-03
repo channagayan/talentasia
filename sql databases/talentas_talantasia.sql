@@ -72,7 +72,6 @@ CREATE TABLE IF NOT EXISTS `logindetails` (
 
 CREATE TABLE IF NOT EXISTS `members` (
   `MemberID` int(11) NOT NULL AUTO_INCREMENT,
-   `MemberID` int(11) NOT NULL,
   `FName` varchar(20) NOT NULL,
   `LName` varchar(20) NOT NULL,
   `DOB` date NOT NULL,
@@ -92,10 +91,10 @@ CREATE TABLE IF NOT EXISTS `members` (
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`MemberID`, `FName`, `MName`, `LName`, `Address1`, `Address2`, `Address3`, `Country`, `Zip_Code`, `DOB`, `Grade`, `SchoolID`, `Gender`, `Contact`, `Email`) VALUES
-(1, 'Kasun', 'Nirmal', 'Wadasinghe', '98/3', 'Headigama', 'Piliyandala', 'LK', '10300', '1989-10-01', '13', 1, 0, 123456789, 'kasun@sinhela.com'),
-(2, 'Kithsiri', 'Mewan', 'Jayasena', 'hgdg', 'hfhg', 'fhgfhg', 'LK', '10300', '1989-10-01', '13', 1, 0, 123456789, 'kasun@sinhela.com'),
-(3, '', '', '', '', '', '', ' ', '', '0000-00-00', '', 0, 0, 0, '');
+INSERT INTO `members` (`MemberID`, `FName`, `LName`, `DOB` , `Gender`, `Contact`, `Email`) VALUES
+(1, 'Kasun', 'Wadasinghe', '1989-10-01',  1, 123456789, 'kasun@sinhela.com'),
+(2, 'Kithsiri', 'Jayasena', '1989-10-01', 0, 123456789, 'kasun@sinhela.com'),
+(3, '', '', '0000-00-00', '', 0, '');
 
 -- --------------------------------------------------------
 

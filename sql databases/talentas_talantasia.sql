@@ -72,7 +72,6 @@ CREATE TABLE IF NOT EXISTS `logindetails` (
 
 CREATE TABLE IF NOT EXISTS `members` (
   `MemberID` int(11) NOT NULL AUTO_INCREMENT,
-   `MemberID` int(11) NOT NULL,
   `FName` varchar(20) NOT NULL,
   `LName` varchar(20) NOT NULL,
   `DOB` date NOT NULL,

@@ -86,6 +86,8 @@ CREATE TABLE IF NOT EXISTS `members` (
   `Gender` int(2) NOT NULL,
   `Contact` int(12) NOT NULL,
   `Email` varchar(255) NOT NULL,
+  `interests` varchar(250) NOT NULL,
+  `education` varchar(250) NOT NULL,
   PRIMARY KEY (`MemberID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 

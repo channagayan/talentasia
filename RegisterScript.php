@@ -3,15 +3,9 @@
 	if(isset($_POST['btnSubmit'])){
 		
 		$Fname=$_POST['txtFName'];
-		$Mname=$_POST['txtMName'];
 		$Lnmae=$_POST['txtLName'];
 		
-		$Add1=$_POST['txtAdd1'];
-		$Add2=$_POST['txtAdd2'];
-		$Add3=$_POST['txtAdd3'];
-		
-		$country=$_POST['Country'];
-		$Zip=$_POST['ZipCode'];
+	
 		
 		$Uname=$_POST['txtUName'];
 		$PW=$_POST['txtPW'];
@@ -19,13 +13,24 @@
 		
 		$DOB=$_POST['dtDOB'];
 		$Gender=$_POST['rbGender'];
-		$Grade=$_POST['txtGrade'];
-		
-		$School=$_POST['ddSchool'];
+		$institute=$_POST['txtInstitute'];
+
 		$Contct=$_POST['txtContact'];
 		$Email=$_POST['txtMail'];
 		$interests =$_POST['interests'];
 		$education =$_POST['education'];
+		$professional =$_POST['professional'];
+		$experience =$_POST['experience'];
+echo "gona";
+  //  if (isset($_FILES['txtPic']) && $_FILES['txtPic']['size'] > 0) { 
+        // Temporary file name stored on the server
+        $tmpName  = $_FILES['txtPic']['tmp_name'];  
+        // Read the file 
+        $fp      = fopen($tmpName, 'r');
+        $image = fread($fp, filesize($tmpName));
+        $image = addslashes($image);
+        fclose($fp);
+
 
 		if($PW==$PWConferm){
 			require("dbClass.php");
@@ -41,9 +46,9 @@
 				}
 			}
 			
-			$query="INSERT INTO members VALUES ('$MaxMemberID','$Fname','$Mname','$Lnmae','$Add1','$Add2','$Add3','$country','$Zip','$DOB','$Grade','$School','$Gender','$Contct','$Email','$interests','$education');";
+			$query="INSERT INTO members VALUES ('$MaxMemberID','$Fname','$Lnmae','$DOB','$Gender','$institute','$Contct','$Email','$interests','$education','$professional','$experience','$image');";
 			$result=mysql_query($query) or die("Query Error".mysql_error());
-			
+		
 			$query="INSERT INTO users VALUES ('$Uname','$MaxMemberID','$PW','0')";
 			$result=mysql_query($query) or die("Query Error".mysql_error());
 			
@@ -51,6 +56,9 @@
 				echo "<script type=\"text/jscript\"> alert(\"Sucess\");</script>";
 			}
 		}
-		header("Location: index.php");
+		//header("Location: index.php");
+
+
+
 	}
 ?>

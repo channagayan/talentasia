@@ -66,18 +66,15 @@
 	  }
 	   if(isset($_SESSION['Uname'])){
 			require("dbClass.php");
-			$query="SELECT FName,MName,LName FROM members WHERE MemberID='".$_SESSION['id']."';";
+			$query="SELECT FName,LName FROM members WHERE MemberID='".$_SESSION['id']."';";
 			$result=mysql_query($query);
 			
 			$Data=mysql_fetch_array($result);
 			echo "<a href=\"profile.php\">";
 			
-				if(is_null($Data['MName'])){
+				
 					echo $Data['FName']." ".$Data['LName']."</a>|";
-				}else{
-					echo $Data['FName']." ".$Data['MName']." ".$Data['LName']."</a>|";
-				}
-
+				
 			echo "<a href=\"Login.php\">LOGOUT</a>|";
 	  }else{
 		 echo "<a id=\"Login\">LOGIN</a>|";

@@ -193,6 +193,33 @@ INSERT INTO `users` (`UName`, `MemberID`, `Password`, `UserLevel`) VALUES
 ('kasun', 1, 123, 0),
 ('kith', 2, 123, 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `talents`
+--
+
+CREATE TABLE IF NOT EXISTS `talents` (
+  `MemberID` int(11) NOT NULL,
+  `TalentID` int(31) NOT NULL AUTO_INCREMENT,
+  `Desc` varchar(255) NOT NULL,
+  `ArtLink` varchar(255) NOT NULL,
+  `VideoLink` varchar(255) NOT NULL,
+  PRIMARY KEY (`TalentID`),
+  KEY `MemberID` (`MemberID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `talents`
+--
+
+INSERT INTO `talents` (`MemberID`, `TalentID`, `Desc`, `ArtLink`, `VideoLink`) VALUES
+(1, 1, 'Talent1', 'www.gonkema.com/art1', 'www.gonkema.com/vid1'),
+(1, 2, 'Talent2', 'www.gonkema.com/art2', 'www.gonkema.com/vid2'),
+(1, 3, 'Talent3', 'www.gonkema.com/art3', 'www.gonkema.com/vid3');
+
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

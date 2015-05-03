@@ -19,7 +19,6 @@ if(!isset($_SESSION['Uname'])){
    
 <script src="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script>
@@ -30,7 +29,40 @@ if(!isset($_SESSION['Uname'])){
         });
     });
 </script>
-
+<script type="text/javascript">
+var dialog;
+$(function() {
+    var form;
+    function addTalent() {
+        return;
+    }
+    dialog = $( "#dialog-form" ).dialog({
+      autoOpen: false,
+      height: 300,
+      width: 350,
+      modal: true,
+      buttons: {
+        "Add Talent": addTalent,
+        Cancel: function() {
+          dialog.dialog( "close" );
+        }
+      },
+      close: function() {
+        form[ 0 ].reset();
+      }
+    });
+ 
+    form = dialog.find( "form" ).on( "submit", function( event ) {
+      event.preventDefault();
+      addTalent();
+    });
+  });
+</script>
+<script type="text/javascript">
+function myFunction() {
+	 dialog.dialog( "open" );
+}
+</script>
 <style>
 #basicdetail {
     
@@ -111,35 +143,40 @@ if(!isset($_SESSION['Uname'])){
 <div id="events" title="Upcoming Events">
 <p>add new events and show current events</p>
 </div>
+
+<div id="dialog-form" title="Add new talent">
+  <form>
+    <fieldset>
+      <label for="Desc">Name</label>
+      <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+    </fieldset>
+  </form>
+</div>
+
 <div id=arts" title="Arts">
-<h2>Talents Section</h2>
+<h1> Talents
+    <small>
+        <span class="btn-group">
+            <button class="btn btn-mini" onclick="myFunction()">Add</button>
+        </span>
+    </small>
+</h1>
 <div id="accordion">
-     <h3>Section 1</h3>
+<?php 
+$query="SELECT * FROM talents WHERE MemberID='1';";
+$result=mysql_query($query);
 
-    <div>
-        <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-    </div>
-     <h3>Section 2</h3>
-
-    <div>
-        <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna.</p>
-    </div>
-     <h3>Section 3</h3>
-
-    <div>
-        <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.</p>
-        <ul>
-            <li>List item one</li>
-            <li>List item two</li>
-            <li>List item three</li>
-        </ul>
-    </div>
-     <h3>Section 4</h3>
-
-    <div>
-        <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est.</p>
-        <p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-    </div>
+while($row = mysql_fetch_array($result)){
+	echo "<h3> " . $row['Desc'] . "</h3>";
+	echo "<div>";
+	echo $row['ArtLink'];
+	echo "<p/>";
+	echo $row['VideoLink'];
+	echo "</div>";
+}
+?>
 </div>
 </div>
       <div class="Footer" id="Footer">

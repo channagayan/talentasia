@@ -118,21 +118,17 @@ function myFunction() {
 
 			$Data=mysql_fetch_array($result);
 
-			$queryscl="SELECT * FROM schools WHERE SchoolID='".$Data['SchoolID']."';";
-			$resultscl=mysql_query($queryscl);
-			$schl=mysql_fetch_array($resultscl);
 			
-				if(is_null($Data['MName'])){
+			
+				
 					echo "<a>".$Data['FName']." ".$Data['LName']."</a>|";
-				}else{
-					echo "<a>".$Data['FName']." ".$Data['MName']." ".$Data['LName']."</a>|";
-				}
+				
 			echo "<a href=\"Login.php\">LOGOUT</a>|";
 	  }else{
 		 echo "<a id=\"Login\">LOGIN</a>|";
 	  }
 		echo "</br>";
-		echo "<p>" .$schl['SchoolName']. "-".$schl['City'] ."</p>";
+		echo "<p>" .$Data['institute'] ."</p>";
  echo "<input type=\"text\" name=\"interests\" value=\"" .$Data['interests'] ."\" data-role=\"tagsinput\"  disabled/>"
 	  
 	  ?>

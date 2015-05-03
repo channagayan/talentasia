@@ -129,6 +129,7 @@ function myFunction() {
 	  }
 		echo "</br>";
 		echo "<p>" .$Data['institute'] ."</p>";
+echo '<img height="100" width="100" src="data:image/jpeg;base64,'.base64_encode( $Data['profilepic'] ).'"/>';
  echo "<input type=\"text\" name=\"interests\" value=\"" .$Data['interests'] ."\" data-role=\"tagsinput\"  disabled/>"
 	  
 	  ?>

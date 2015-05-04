@@ -9,12 +9,13 @@ $target_dir = "uploads/".$uname."/";
 $target_file = $target_dir . basename($_FILES["imageToUpload"]["name"]);
 $video_link = $_POST["videoLink"];
 $desc = $_POST["desc"];
+echo getcwd();
 if (!file_exists($target_dir)) {
-	mkdir($target_dir, 0777, true);
+	mkdir("./".$target_dir, 0777, true);
 }
 $message = "place :".$target_dir." file ".$target_file . "  desc ". $desc . " vid " . $video_link;
 echo $message;
-if (move_uploaded_file($_FILES["imageToUpload"]["tmp_name"], $target_file)) {
+if (move_uploaded_file($_FILES["imageToUpload"]["tmp_name"], "./".$target_file)) {
 	echo "The file ". basename( $_FILES["imageToUpload"]["name"]). " has been uploaded.";
 } else {
 	$target_file = '';

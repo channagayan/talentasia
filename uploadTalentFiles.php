@@ -20,11 +20,14 @@ if (move_uploaded_file($_FILES["imageToUpload"]["tmp_name"], $target_file)) {
 	$target_file = '';
 	echo "Sorry, there was an error uploading your file.";
 }
+//only parsing for youtube videos others are not supported.
+parse_str( parse_url( $video_link, PHP_URL_QUERY ), $my_array_of_vars );
+echo $my_array_of_vars['v'];
 $query="INSERT INTO `talents`(`MemberID`, `Desc`, `ArtLink`, `VideoLink`) VALUES ('".
 		$_SESSION['id']."','".
 		$desc."','".
 		$target_file."','".
-		$video_link."');";
+		$my_array_of_vars['v']."');";
 require("dbClass.php");
 $result=mysql_query($query);
 echo $query;

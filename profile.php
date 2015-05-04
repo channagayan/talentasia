@@ -189,8 +189,12 @@ while($row = mysql_fetch_array($result)){
 	echo "<h3> " . $row['Desc'] . "</h3>";
 	echo "<div>";
 	echo $row['ArtLink'];
+	echo "<img src=".$row['ArtLink']." style='width:304px;height:228px'>";
 	echo "<p/>";
 	echo $row['VideoLink'];
+	echo "<iframe width='420' height='315'
+	src='http://www.youtube.com/embed/".$row['VideoLink']."?autoplay=0'>
+	</iframe>";
 	echo "</div>";
 }
 ?>

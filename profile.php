@@ -34,7 +34,6 @@ var dialog;
 $(function() {
     var form;
     function addTalent() {
-        alert('hello');
     	var formData = new FormData(form[0]);
     	$.ajax(
     	    {

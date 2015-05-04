@@ -181,16 +181,18 @@ echo '<img height="100" width="100" src="data:image/jpeg;base64,'.base64_encode(
 $query="SELECT * FROM talents WHERE MemberID='".$_SESSION['id']."';";
 $result=mysql_query($query);
 
+
 while($row = mysql_fetch_array($result)){
 	echo "<h3> " . $row['Desc'] . "</h3>";
 	echo "<div>";
+	echo "<table><tr><td>";
 	echo $row['ArtLink'];
 	echo "<img src=".$row['ArtLink']." style='width:304px;height:228px'>";
-	echo "<p/>";
+	echo "</td><td>";
 	echo $row['VideoLink'];
 	echo "<iframe width='420' height='315'
 	src='http://www.youtube.com/embed/".$row['VideoLink']."?autoplay=0'>
-	</iframe>";
+	</iframe></td></tr></table>";
 	echo "</div>";
 }
 ?>

@@ -89,6 +89,17 @@ CREATE TABLE IF NOT EXISTS `members` (
 
 
 --
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`MemberID`, `FName`, `LName`, `DOB` , `Gender`, `Contact`, `Email`) VALUES
+(1, 'Kasun', 'Wadasinghe', '1989-10-01',  1, 123456789, 'kasun@sinhela.com'),
+(2, 'Kithsiri', 'Jayasena', '1989-10-01', 0, 123456789, 'kasun@sinhela.com'),
+(3, '', '', '0000-00-00', '', 0, '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `news`
 --
 

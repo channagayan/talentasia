@@ -34,12 +34,30 @@ var dialog;
 $(function() {
     var form;
     function addTalent() {
+        alert('hello');
+    	var formData = new FormData(form[0]);
+    	$.ajax(
+    	    {
+            url: 'uploadTalentFiles.php',
+            type: 'POST',
+            data: formData,
+            processData: false, 
+            contentType: false
+            });
+    	dialog.dialog( "close" );
+     	 $('#arts').load('profile.php #artContainer', function () {
+              /// can add another function here
+     		$("#accordion").accordion({
+                collapsible: true,
+                active: false
+            });
+          });
         return;
     }
     dialog = $( "#dialog-form" ).dialog({
       autoOpen: false,
-      height: 300,
-      width: 350,
+      height: 270,
+      width: 500,
       modal: true,
       buttons: {
         "Add Talent": addTalent,
@@ -52,9 +70,7 @@ $(function() {
       }
     });
  
-    form = dialog.find( "form" ).on( "submit", function( event ) {
-      event.preventDefault();
-      addTalent();
+    form = dialog.find( "form" ).on( "submit", function( event ) {   
     });
   });
 </script>
@@ -85,15 +101,12 @@ function myFunction() {
     float:right;
     padding:10px;	 	 
 }
-#accordion {
-    width:70%;
-    height:70%;	 	 
-}
 #Footer {
 	position:absolute;
 	float:none;
 	width: 100%;
 	height: 10%;
+	bottom: 0;
 	background-color:#000000;
 }
 
@@ -145,17 +158,22 @@ function myFunction() {
 </div>
 
 <div id="dialog-form" title="Add new talent">
-  <form>
+  <form enctype="multipart/form-data">
     <fieldset>
-      <label for="Desc">Name</label>
-      <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+      <label for="Desc">Description</label>
+      <input type="text" name="desc" id="desc" value="" class="text ui-widget-content ui-corner-all">
+      </br>
+      Select Image to upload:<input type="file" name="imageToUpload" id="img">
+      Video URL:
+    	<input type="url" name="videoLink" id="vid">
       <!-- Allow form submission with keyboard without duplicating the dialog button -->
       <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
     </fieldset>
   </form>
 </div>
 
-<div id=arts" title="Arts">
+<div id="arts" title="Arts">
+<div id="artContainer">
 <h1> Talents
     <small>
         <span class="btn-group">
@@ -165,7 +183,7 @@ function myFunction() {
 </h1>
 <div id="accordion">
 <?php 
-$query="SELECT * FROM talents WHERE MemberID='1';";
+$query="SELECT * FROM talents WHERE MemberID='".$_SESSION['id']."';";
 $result=mysql_query($query);
 
 while($row = mysql_fetch_array($result)){
@@ -177,6 +195,7 @@ while($row = mysql_fetch_array($result)){
 	echo "</div>";
 }
 ?>
+</div>
 </div>
 </div>
       <div class="Footer" id="Footer">

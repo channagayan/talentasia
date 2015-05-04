@@ -47,7 +47,7 @@ $(function() {
     	dialog.dialog( "close" );
      	 $('#arts').load('profile.php #artContainer', function () {
               /// can add another function here
-     		$("#accordion").accordion({
+     		$('#accordion').accordion({
                 collapsible: true,
                 active: false
             });

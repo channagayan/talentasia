@@ -21,7 +21,7 @@
 		$education =$_POST['education'];
 		$professional =$_POST['professional'];
 		$experience =$_POST['experience'];
-echo "gona";
+
   //  if (isset($_FILES['txtPic']) && $_FILES['txtPic']['size'] > 0) { 
         // Temporary file name stored on the server
         $tmpName  = $_FILES['txtPic']['tmp_name'];  
@@ -56,7 +56,7 @@ echo "gona";
 				echo "<script type=\"text/jscript\"> alert(\"Sucess\");</script>";
 			}
 		}
-		//header("Location: index.php");
+		header("Location: index.php");
 
 
 
